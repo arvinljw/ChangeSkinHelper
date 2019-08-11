@@ -33,7 +33,6 @@ public class SecondActivity extends ChangeSkinActivity {
         currSkinIndex = MainActivity.getSkinIndexBySuffix(suffix);
     }
 
-
     public void changeSkin(View view) {
         currSkinIndex = (currSkinIndex + 1) % 4;
         String suffix = MainActivity.getSuffixBySkinIndex(currSkinIndex);

@@ -1,17 +1,15 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'com.github.arvinljw'
-
-def androidId = rootProject.ext.androidId
+group='com.github.arvinljw'
 
 android {
-    compileSdkVersion androidId.compileSdkVersion
+    compileSdkVersion 28
     defaultConfig {
-        minSdkVersion androidId.minSdkVersion
-        targetSdkVersion androidId.targetSdkVersion
-        versionCode androidId.versionCode
-        versionName androidId.versionName
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 2
+        versionName "1.0.2"
 
     }
     buildTypes {
@@ -20,11 +18,30 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-}
 
-def thirdLibrary = rootProject.ext.thirdLibrary
+    // build a jar with source files
+    task sourcesJar(type: Jar) {
+        from android.sourceSets.main.java.srcDirs
+        classifier = 'sources'
+    }
+    task javadoc(type: Javadoc) {
+        failOnError false
+        source = android.sourceSets.main.java.sourceFiles
+        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+        classpath += configurations.compile
+    }
+    // build a jar with javadoc
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        classifier = 'javadoc'
+        from javadoc.destinationDir
+    }
+    artifacts {
+        archives sourcesJar
+        archives javadocJar
+    }
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    compileOnly thirdLibrary.appcompat
+    compileOnly 'com.android.support:appcompat-v7:28.0.0'
 }
