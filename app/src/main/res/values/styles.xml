@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimary_dark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="csh_typeface">@string/custom_typeface_string</item>
+        <item name="csh_typeface">@string/custom_typeface</item>
     </style>
 
 </resources>

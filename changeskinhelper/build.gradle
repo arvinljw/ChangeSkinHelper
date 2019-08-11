@@ -26,5 +26,5 @@ def thirdLibrary = rootProject.ext.thirdLibrary
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation thirdLibrary.appcompat
+    compileOnly thirdLibrary.appcompat
 }

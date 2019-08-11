@@ -40,8 +40,8 @@ public class MainActivity extends ChangeSkinActivity {
         TextView textView = new TextView(this);
         textView.setText("我是手动创建的view");
         textView.setTextColor(ChangeSkinHelper.getColor(R.color.colorAccent));
-        textView.setTypeface(ChangeSkinHelper.getTypeface(R.string.custom_typeface_string));
-        ChangeSkinHelper.setViewTag(textView, -1, -1, R.color.colorAccent, R.string.custom_typeface_string);
+        textView.setTypeface(ChangeSkinHelper.getTypeface(R.string.custom_typeface));
+        ChangeSkinHelper.setViewTag(textView, -1, -1, R.color.colorAccent, R.string.custom_typeface);
         frameLayout.addView(textView, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
         String suffix = ChangeSkinPreferenceUtil.getString(getApplicationContext(), ChangeSkinHelper.KEY_SKIN_SUFFIX);

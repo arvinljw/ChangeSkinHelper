@@ -9,8 +9,6 @@ import android.view.View;
 
 import net.arvin.changeskinhelper.ChangeSkinHelper;
 import net.arvin.changeskinhelper.core.ChangeCustomSkinListener;
-import net.arvin.changeskinhelper.core.SkinResId;
-import net.arvin.changeskinhelper.core.SkinResourceProcessor;
 
 /**
  * Created by arvinljw on 2019-08-10 17:40
