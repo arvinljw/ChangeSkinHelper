@@ -1,0 +1,25 @@
+apply plugin: 'com.android.application'
+
+def androidId = rootProject.ext.androidId
+
+android {
+    compileSdkVersion androidId.compileSdkVersion
+    defaultConfig {
+        applicationId "net.arvin.changeskinhelper.skinpackage"
+        minSdkVersion androidId.minSdkVersion
+        targetSdkVersion androidId.targetSdkVersion
+        versionCode androidId.versionCode
+        versionName androidId.versionName
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}

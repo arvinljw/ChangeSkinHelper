@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ChangeSkinHelper</string>
+    <string name="test">这是很长的一段文字这是很长的一段文字这是很长的一段文字这是很长的一段文字这是很长的一段文字这是很长的一段文字这是很长的一段文字这是很长的一段文字</string>
+    <string name="custom_typeface_string"/>
+</resources>

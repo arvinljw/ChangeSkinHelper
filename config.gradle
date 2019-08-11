@@ -1,0 +1,23 @@
+ext {
+
+    androidId = [
+            compileSdkVersion: 28,
+            minSdkVersion    : 16,
+            targetVersion    : 28,
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+
+    appId = [
+            "app": "net.arvin.changeskinhelper.sample",
+    ]
+
+    supportVersion = "28.0.0"
+
+    thirdLibrary = [
+            "appcompat"       : "com.android.support:appcompat-v7:$supportVersion",
+            "recyclerview"    : "com.android.support:recyclerview-v7:$supportVersion",
+            "constraint"      : "com.android.support.constraint:constraint-layout:1.1.3",
+            "permissionHelper": "com.github.arvinljw:PermissionHelper:v1.0.1"
+    ]
+}

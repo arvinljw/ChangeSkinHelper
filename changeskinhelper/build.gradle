@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'com.github.arvinljw'
+
+def androidId = rootProject.ext.androidId
+
+android {
+    compileSdkVersion androidId.compileSdkVersion
+    defaultConfig {
+        minSdkVersion androidId.minSdkVersion
+        targetSdkVersion androidId.targetSdkVersion
+        versionCode androidId.versionCode
+        versionName androidId.versionName
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+def thirdLibrary = rootProject.ext.thirdLibrary
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation thirdLibrary.appcompat
+}

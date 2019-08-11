@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="csh_typeface" format="string"/>
+    <attr name="csh_textColor" format="color|reference"/>
+</resources>

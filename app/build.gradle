@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+
+def androidId = rootProject.ext.androidId
+def appId = rootProject.ext.appId
+
+android {
+    compileSdkVersion androidId.compileSdkVersion
+    defaultConfig {
+        applicationId appId.app
+        minSdkVersion androidId.minSdkVersion
+        targetSdkVersion androidId.targetSdkVersion
+        versionCode androidId.versionCode
+        versionName androidId.versionName
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+def thirdLibrary = rootProject.ext.thirdLibrary
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    thirdLibrary.each { k, v -> implementation v }
+    implementation project(':changeskinhelper')
+}
