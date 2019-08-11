@@ -10,6 +10,8 @@ import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.ColorRes;
+import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -447,13 +449,13 @@ public class ChangeSkinHelper {
         return SkinResourceProcessor.getInstance().getTypeface(resourceId);
     }
 
-    public static void setNavigation(Activity activity, int navigationBarColor) {
+    public static void setNavigation(Activity activity, @ColorRes int navigationBarColor) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             activity.getWindow().setNavigationBarColor(getColor(navigationBarColor));
         }
     }
 
-    public static void setActionBar(AppCompatActivity activity, int actionBarColor) {
+    public static void setActionBar(AppCompatActivity activity,@ColorRes  int actionBarColor) {
         ActionBar actionBar = activity.getSupportActionBar();
         if (actionBar != null) {
             actionBar.setBackgroundDrawable(new ColorDrawable(getColor(actionBarColor)));

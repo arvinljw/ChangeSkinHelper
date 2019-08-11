@@ -33,6 +33,8 @@ public class MainActivity extends ChangeSkinActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setBarsColor();
+
         FrameLayout frameLayout = findViewById(R.id.layout_main);
         frameLayout.setBackgroundColor(ChangeSkinHelper.getColor(R.color.colorPrimary));
         ChangeSkinHelper.setViewTag(frameLayout, R.color.colorPrimary);
@@ -118,5 +120,15 @@ public class MainActivity extends ChangeSkinActivity {
         startActivity(new Intent(this, SecondActivity.class));
     }
 
+    @Override
+    public void changeSkin() {
+        super.changeSkin();
+        setBarsColor();
+    }
 
+    private void setBarsColor() {
+        StatusBarUtil.setColorNoTranslucent(this, ChangeSkinHelper.getColor(R.color.colorPrimary));
+        ChangeSkinHelper.setNavigation(this, R.color.colorPrimary);
+        ChangeSkinHelper.setActionBar(this, R.color.colorPrimary);
+    }
 }

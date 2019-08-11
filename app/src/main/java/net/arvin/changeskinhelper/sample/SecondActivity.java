@@ -27,7 +27,7 @@ public class SecondActivity extends ChangeSkinActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-
+        setBarsColor();
         getSupportFragmentManager().beginTransaction().add(R.id.layout_main, new MainFragment()).commit();
         String suffix = ChangeSkinPreferenceUtil.getString(getApplicationContext(), ChangeSkinHelper.KEY_SKIN_SUFFIX);
         currSkinIndex = MainActivity.getSkinIndexBySuffix(suffix);
@@ -58,5 +58,17 @@ public class SecondActivity extends ChangeSkinActivity {
     public void defaultSkin(View view) {
         defaultSkin();
         currSkinIndex = 0;
+    }
+
+    @Override
+    public void changeSkin() {
+        super.changeSkin();
+        setBarsColor();
+    }
+
+    private void setBarsColor() {
+        StatusBarUtil.setColorNoTranslucent(this, ChangeSkinHelper.getColor(R.color.colorPrimary));
+        ChangeSkinHelper.setNavigation(this, R.color.colorPrimary);
+        ChangeSkinHelper.setActionBar(this, R.color.colorPrimary);
     }
 }

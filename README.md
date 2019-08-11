@@ -106,6 +106,20 @@ View只要是通过`LayoutInflater.from(context).inflate()`来创建的，其中
 
 其实RecyclerView这类的也可以，但是滑动一下就会发现不对劲，这是因为它存在item复用，所以需要优化处理，后文中会介绍如何处理。
 
+##### 状态栏、导航栏、ActionBar颜色设置
+
+这部分就比较简单，状态栏的颜色设置主要是通过[laobie/StatusBarUtil](https://github.com/laobie/StatusBarUtil)设置的，主要是颜色获取通过`ChangeSkinHelper.getColor`，导航栏只支持5.0以后，actionBar主要就是获取到actionBar设置颜色即可，不使用actionBar不管也行，具体代码：
+
+```
+private void setBarsColor() {
+    StatusBarUtil.setColorNoTranslucent(this, ChangeSkinHelper.getColor(R.color.colorPrimary));
+    ChangeSkinHelper.setNavigation(this, R.color.colorPrimary);
+    ChangeSkinHelper.setActionBar(this, R.color.colorPrimary);
+}
+```
+
+这个方法需要在activity的onCreate方法中调用和在换肤的回调changeSkin方法中调用即可，使用方法见app下的MainActivity。
+
 ##### 插件皮肤包
 
 插件皮肤包其实就是一个Android apk，只是里边可以只包含资源文件即可。
@@ -122,6 +136,6 @@ View只要是通过`LayoutInflater.from(context).inflate()`来创建的，其中
 
 ### 感谢
 
- 换肤功能学习最开始是通过《网易云课程》，后来又看到了[hongyangAndroid/ChangeSkin](https://github.com/hongyangAndroid/ChangeSkin)库，吸取了一些技巧，对我帮助都很大，在此表示特别感谢～
+ 换肤功能最开始是通过《网易云课程-安卓高级开发工程师微专业》学习，后来又看到了[hongyangAndroid/ChangeSkin](https://github.com/hongyangAndroid/ChangeSkin)库，吸取了一些技巧，对我帮助都很大，在此表示特别感谢～
  
 如果有任何对本库需要改进和优化的建议都可以通过issues提交给我，我会定期维护优化，感谢支持。
