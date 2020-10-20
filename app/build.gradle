@@ -19,6 +19,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            res.srcDirs += ['src/main/res-dark', 'src/main/res-light']
+        }
+    }
 }
 
 def thirdLibrary = rootProject.ext.thirdLibrary

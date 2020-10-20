@@ -23,6 +23,7 @@ public class MainActivity extends ChangeSkinActivity {
     private int currSkinIndex = 0;
 
     private PermissionUtil permissionUtil;
+    private TextView tvTest;
 
     protected boolean isChangeSkin() {
         return true;
@@ -48,6 +49,14 @@ public class MainActivity extends ChangeSkinActivity {
 
         String suffix = ChangeSkinPreferenceUtil.getString(getApplicationContext(), ChangeSkinHelper.KEY_SKIN_SUFFIX);
         currSkinIndex = getSkinIndexBySuffix(suffix);
+
+        tvTest = findViewById(R.id.tv_test);
+        tvTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvTest.setSelected(!tvTest.isSelected());
+            }
+        });
 
     }
 
