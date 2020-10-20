@@ -2,6 +2,7 @@
 <resources>
     <color name="colorPrimary_light">#89BFC7</color>
     <color name="colorAccent_light">#10D81B60</color>
+    <color name="colorTextBackground_light">#333333</color>
     <color name="text_light">#bbbbbb</color>
 
 
