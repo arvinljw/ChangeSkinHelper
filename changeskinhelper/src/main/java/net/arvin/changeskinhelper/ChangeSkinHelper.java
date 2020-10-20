@@ -11,7 +11,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.ColorRes;
-import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -51,6 +50,7 @@ public class ChangeSkinHelper {
             android.R.attr.src,
             R.attr.csh_textColor,
             R.attr.csh_typeface,
+            android.R.attr.windowBackground,
     };
 
     //todo 反射：这里使用反射创建View
@@ -134,7 +134,12 @@ public class ChangeSkinHelper {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, attrIds);
         SkinResId skin = new SkinResId();
         int defValue = -1;
-        skin.setBackground(typedArray.getResourceId(0, defValue));
+        int background = typedArray.getResourceId(0, defValue);
+        int windowBackground = typedArray.getResourceId(4, defValue);
+        if (background == -1) {
+            background = windowBackground;
+        }
+        skin.setBackground(background);
         skin.setSrc(typedArray.getResourceId(1, defValue));
         int textColorResId = typedArray.getResourceId(2, defValue);
         if (textColorResId == -1 && view instanceof TextView) {
@@ -455,7 +460,7 @@ public class ChangeSkinHelper {
         }
     }
 
-    public static void setActionBar(AppCompatActivity activity,@ColorRes  int actionBarColor) {
+    public static void setActionBar(AppCompatActivity activity, @ColorRes int actionBarColor) {
         ActionBar actionBar = activity.getSupportActionBar();
         if (actionBar != null) {
             actionBar.setBackgroundDrawable(new ColorDrawable(getColor(actionBarColor)));

@@ -27,4 +27,5 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     thirdLibrary.each { k, v -> implementation v }
     implementation project(':changeskinhelper')
+//    implementation 'com.github.arvinljw:ChangeSkinHelper:v1.0.2'
 }
